@@ -6,6 +6,7 @@ import LoginPage from './components/dipak/LoginPage';
 import RegisterPage from './components/dipak/RegisterPage';
 import LandingPage from './components/Chaitanya/Landingpage';
 import IncidentForm from './components/Chaitanya/IncidentForm';
+import Dashboard from './components/omkar/Dashboard';
 
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/incident" element={<IncidentForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/incident/:id" element={<IncidentForm />} />
       </Routes>
     </Router>
   );

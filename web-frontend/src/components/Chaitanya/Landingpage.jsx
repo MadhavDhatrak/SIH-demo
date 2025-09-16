@@ -4,6 +4,24 @@ import { useNavigate } from 'react-router-dom';
 function LandingPage() {
     const navigate = useNavigate();
     const [language, setLanguage] = useState('en');
+    const [showCallPopup, setShowCallPopup] = useState(false);
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+    const handleCallRequest = () => {
+        if (phoneNumber.trim()) {
+            setShowCallPopup(false);
+            setShowSuccessMessage(true);
+            setPhoneNumber('');
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                setShowSuccessMessage(false);
+            }, 3000);
+        } else {
+            alert('Please enter your phone number');
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -466,6 +484,101 @@ function LandingPage() {
                     </div>
                 </div>
             </footer>
+
+            {/* Floating Call Button */}
+            <div className="fixed bottom-6 right-6 z-50">
+                <div 
+                    className="relative"
+                    onMouseEnter={() => setShowCallPopup(true)}
+                    onMouseLeave={() => setShowCallPopup(false)}
+                >
+                    {/* Success Message */}
+                    {showSuccessMessage && (
+                        <div className="absolute bottom-16 right-0 bg-green-500 text-white rounded-2xl shadow-2xl p-4 w-72 border border-green-400 animate-bounce">
+                            <div className="flex items-center">
+                                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3">
+                                    <span className="text-green-500 text-xl">📞</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-white">Sarah is calling you!</h3>
+                                    <p className="text-sm text-green-100">Please wait for the call...</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Call Popup */}
+                    {showCallPopup && !showSuccessMessage && (
+                        <div className="absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl p-6 w-80 border border-gray-200 animate-fadeIn">
+                            <div className="flex items-center mb-4">
+                                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mr-3">
+                                    <span className="text-white text-xl">👩‍💼</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900">Call Sarah</h3>
+                                    <p className="text-sm text-gray-600">INCOIS Support Agent</p>
+                                </div>
+                            </div>
+                            <p className="text-gray-700 mb-4 text-sm">
+                                Hi! I'm Sarah from INCOIS support team. I can help you with ocean hazard reporting and answer any questions.
+                            </p>
+                            <div className="mb-4">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Your Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    value={phoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
+                                    placeholder="+91 XXXXX XXXXX"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                />
+                            </div>
+                            <div className="flex space-x-3">
+                                <button
+                                    onClick={handleCallRequest}
+                                    className="flex-1 bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-lg font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200"
+                                >
+                                    📞 Request Call
+                                </button>
+                                <button
+                                    onClick={() => setShowCallPopup(false)}
+                                    className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Floating Phone Icon */}
+                    <div
+                        className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center cursor-pointer transform hover:scale-110 transition-all duration-300 animate-pulse"
+                        onClick={() => setShowCallPopup(!showCallPopup)}
+                    >
+                        <span className="text-2xl">📱</span>
+                    </div>
+
+                    {/* Ripple Effect */}
+                    <div className="absolute inset-0 rounded-full bg-blue-400 opacity-30 animate-ping"></div>
+                </div>
+            </div>
+
+            <style jsx>{`
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                .animate-fadeIn {
+                    animation: fadeIn 0.3s ease-out;
+                }
+            `}</style>
         </div>
     );
 }
