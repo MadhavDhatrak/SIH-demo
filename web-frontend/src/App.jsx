@@ -7,6 +7,7 @@ import RegisterPage from './components/dipak/RegisterPage';
 import LandingPage from './components/Chaitanya/Landingpage';
 import IncidentForm from './components/Chaitanya/IncidentForm';
 import Dashboard from './components/omkar/Dashboard';
+import Social from './components/omkar/Social';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/incident" element={<IncidentForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/socials" element={<Social />} />
         <Route path="/incident/:id" element={<IncidentForm />} />
       </Routes>
     </Router>
