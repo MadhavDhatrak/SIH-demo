@@ -51,7 +51,7 @@ const RegisterPage = () => {
       errors.username = 'Username is required';
     } else if (formData.username.length < 3) {
       errors.username = 'Username must be at least 3 characters long';
-    } 
+    }
     
     // Email validation
     if (!formData.email.trim()) {
@@ -195,7 +195,7 @@ const RegisterPage = () => {
             <span className="text-white">Make a positive impact</span>
           </div>
         </div>
-        
+
         <p className="text-white text-opacity-60 mt-6">
           © 2025 Ocean Hazard Platform. All rights reserved.
         </p>
@@ -213,13 +213,13 @@ const RegisterPage = () => {
             <h1 className="text-3xl font-bold text-gray-900">Ocean Hazard Platform</h1>
             <p className="text-gray-500 mt-2">Join our community</p>
           </div>
-          
+
           <h2 className="text-3xl font-extrabold text-gray-900">Create your account</h2>
           <p className="mt-2 text-gray-600">
             Sign up to start reporting hazards and protecting our oceans
           </p>
           
-          {error && (
+            {error && (
             <div className="mt-4 bg-red-50 border-l-4 border-red-500 p-4 rounded-md">
               <div className="flex">
                 <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -227,10 +227,10 @@ const RegisterPage = () => {
                 </svg>
                 <p className="ml-3 text-sm text-red-700">{error}</p>
               </div>
-            </div>
-          )}
-          
-          {success && (
+              </div>
+            )}
+
+            {success && (
             <div className="mt-4 bg-green-50 border-l-4 border-green-500 p-4 rounded-md">
               <div className="flex">
                 <svg className="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -238,23 +238,23 @@ const RegisterPage = () => {
                 </svg>
                 <p className="ml-3 text-sm text-green-700">{success}</p>
               </div>
-            </div>
-          )}
-          
+              </div>
+            )}
+
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
-            {/* Role Selection */}
+              {/* Role Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Account Type</label>
               <div className="grid grid-cols-2 gap-3">
                 <label className={`flex items-center p-3 border rounded-lg cursor-pointer ${
                   formData.admin === 'user' ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' : 'border-gray-300'
                 }`}>
-                  <input
-                    type="radio"
+                    <input
+                      type="radio"
                     name="admin"
-                    value="user"
+                      value="user"
                     checked={formData.admin === 'user'}
-                    onChange={handleRoleChange}
+                      onChange={handleRoleChange}
                     className="sr-only"
                   />
                   <div className="flex items-center">
@@ -264,17 +264,17 @@ const RegisterPage = () => {
                       <p className="text-xs text-gray-500">Report hazards</p>
                     </div>
                   </div>
-                </label>
-                
+                  </label>
+                  
                 <label className={`flex items-center p-3 border rounded-lg cursor-pointer ${
                   formData.admin === 'admin' ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' : 'border-gray-300'
                 }`}>
-                  <input
-                    type="radio"
+                    <input
+                      type="radio"
                     name="admin"
-                    value="admin"
+                      value="admin"
                     checked={formData.admin === 'admin'}
-                    onChange={handleRoleChange}
+                      onChange={handleRoleChange}
                     className="sr-only"
                   />
                   <div className="flex items-center">
@@ -284,9 +284,9 @@ const RegisterPage = () => {
                       <p className="text-xs text-gray-500">Manage platform</p>
                     </div>
                   </div>
-                </label>
+                  </label>
+                </div>
               </div>
-            </div>
 
             {/* Username & Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -300,24 +300,24 @@ const RegisterPage = () => {
                       <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
                     className={`pl-10 appearance-none block w-full px-3 py-3 border rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm ${
                       validationErrors.username ? 'border-red-300' : 'border-gray-300'
                     }`}
                     placeholder="Enter username"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                    disabled={loading}
-                  />
+                  value={formData.username}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                />
                 </div>
                 {validationErrors.username && (
                   <p className="mt-1 text-sm text-red-600">{validationErrors.username}</p>
                 )}
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email *</label>
                 <div className="mt-1 relative">
@@ -327,24 +327,24 @@ const RegisterPage = () => {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                   </div>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
                     className={`pl-10 appearance-none block w-full px-3 py-3 border rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm ${
                       validationErrors.email ? 'border-red-300' : 'border-gray-300'
                     }`}
                     placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    disabled={loading}
-                  />
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  disabled={loading}
+                />
                 </div>
                 {validationErrors.email && (
                   <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
                 )}
               </div>
-            </div>
+              </div>
 
             {/* Phone Number */}
             <div>
@@ -371,9 +371,9 @@ const RegisterPage = () => {
               {validationErrors.phone && (
                 <p className="mt-1 text-sm text-red-600">{validationErrors.phone}</p>
               )}
-            </div>
+              </div>
 
-            {/* Password Field */}
+              {/* Password Field */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password *</label>
               <div className="mt-1 relative">
@@ -382,21 +382,21 @@ const RegisterPage = () => {
                     <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  id="password"
-                  name="password"
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    id="password"
+                    name="password"
                   className={`pl-10 appearance-none block w-full px-3 py-3 border rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm ${
                     validationErrors.password ? 'border-red-300' : 'border-gray-300'
                   }`}
                   placeholder="Enter password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  disabled={loading}
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    disabled={loading}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   {showPassword ? (
@@ -410,14 +410,14 @@ const RegisterPage = () => {
                       <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                     </svg>
                   )}
-                </button>
-              </div>
-              {validationErrors.password && (
+                  </button>
+                </div>
+                {validationErrors.password && (
                 <p className="mt-1 text-sm text-red-600">{validationErrors.password}</p>
-              )}
-            </div>
+                )}
+              </div>
 
-            {/* Address Field */}
+              {/* Address Field */}
             <div>
               <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address *</label>
               <div className="mt-1 relative">
@@ -442,9 +442,9 @@ const RegisterPage = () => {
               {validationErrors.address && (
                 <p className="mt-1 text-sm text-red-600">{validationErrors.address}</p>
               )}
-            </div>
+              </div>
 
-            {/* Submit Button */}
+              {/* Submit Button */}
             <div className="mt-2">
               <button
                 type="submit"
@@ -463,8 +463,8 @@ const RegisterPage = () => {
                 }
               </button>
             </div>
-          </form>
-          
+            </form>
+
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}
@@ -472,8 +472,8 @@ const RegisterPage = () => {
                 Sign in here
               </Link>
             </p>
-          </div>
-          
+        </div>
+
           <p className="mt-6 text-xs text-center text-gray-500">
             By creating an account, you agree to our <a href="#" className="text-blue-600 hover:text-blue-500">Terms of Service</a> and <a href="#" className="text-blue-600 hover:text-blue-500">Privacy Policy</a>
           </p>

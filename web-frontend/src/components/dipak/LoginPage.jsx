@@ -112,7 +112,7 @@ const LoginPage = ({ onLogin }) => {
             <span className="text-white">Real-time reporting</span>
           </div>
         </div>
-        
+
         <p className="text-white text-opacity-60 mt-6">
           © 2025 Ocean Hazard Platform. All rights reserved.
         </p>
@@ -130,13 +130,13 @@ const LoginPage = ({ onLogin }) => {
             <h1 className="text-3xl font-bold text-gray-900">Ocean Hazard Platform</h1>
             <p className="text-gray-500 mt-2">Crowdsourced Ocean Hazard Reporting</p>
           </div>
-          
+
           <h2 className="text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
           <p className="mt-3 text-gray-600">
             Access your account to report hazards or manage the platform
           </p>
           
-          {error && (
+            {error && (
             <div className="mt-4 bg-red-50 border-l-4 border-red-500 p-4 rounded-md">
               <div className="flex">
                 <svg className="h-5 w-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -144,9 +144,9 @@ const LoginPage = ({ onLogin }) => {
                 </svg>
                 <p className="ml-3 text-sm text-red-700">{error}</p>
               </div>
-            </div>
-          )}
-          
+              </div>
+            )}
+
           <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-5">
               <div>
@@ -158,7 +158,7 @@ const LoginPage = ({ onLogin }) => {
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                     </svg>
                   </div>
-                  <input
+                    <input
                     id="email"
                     name="email"
                     type="email"
@@ -171,7 +171,7 @@ const LoginPage = ({ onLogin }) => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <div className="flex justify-between">
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
@@ -182,7 +182,7 @@ const LoginPage = ({ onLogin }) => {
                     <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                     </svg>
-                  </div>
+              </div>
                   <input
                     id="password"
                     name="password"
@@ -212,9 +212,9 @@ const LoginPage = ({ onLogin }) => {
                     )}
                   </button>
                 </div>
+                </div>
               </div>
-            </div>
-            
+
             <div>
               <button
                 type="submit"
@@ -235,8 +235,8 @@ const LoginPage = ({ onLogin }) => {
                 }
               </button>
             </div>
-          </form>
-          
+            </form>
+
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{' '}
